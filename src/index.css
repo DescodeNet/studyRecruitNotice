@@ -14,8 +14,14 @@ html {
 }
 
 html, body {
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
   -webkit-overflow-scrolling: touch;
+}
+
+/* 모바일 스크롤 안정화 */
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 
