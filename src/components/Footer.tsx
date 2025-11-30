@@ -6,16 +6,13 @@ export default function Footer() {
         <p className="text-sm mb-4">
           제주에서 시작하는 경제 문해력 코칭 스터디
         </p>
-        <div className="flex justify-center gap-6 text-sm">
-          <a href="#" className="hover:text-white transition-colors">
+        <div className="flex justify-center text-sm">
+          <a href="https://open.kakao.com/o/g1RTUo4h" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             카카오톡 문의
-          </a>
-          <a href="#" className="hover:text-white transition-colors">
-            Instagram
           </a>
         </div>
         <p className="mt-6 text-xs text-white/50">
-          © 2024 지코노믹 코칭랩. All rights reserved.
+          © 2025 지코노믹 코칭랩. All rights reserved.
         </p>
       </div>
     </footer>

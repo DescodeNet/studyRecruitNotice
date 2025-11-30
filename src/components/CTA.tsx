@@ -241,7 +241,7 @@ export default function CTA() {
                 {isSubmitting ? '신청 중...' : cta.primaryButton}
               </motion.button>
               <a
-                href="https://open.kakao.com"
+                href="https://open.kakao.com/o/g1RTUo4h"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 px-8 py-4 bg-transparent border-2 border-primary text-primary font-semibold rounded-xl text-lg hover:bg-primary/5 transition-colors text-center"
