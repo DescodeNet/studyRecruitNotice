@@ -77,7 +77,7 @@ export const content = {
           "주식/채권/달러/금/가상화폐 기초",
           "ETF로 시작하는 분산 투자"
         ],
-        tag: null
+        tag: "실습 포함"
       },
       {
         week: 4,
@@ -88,7 +88,7 @@ export const content = {
           "정책에서 흐름 읽기",
           "Before → After 사고법"
         ],
-        tag: null
+        tag: "실습 포함"
       }
     ]
   },
