@@ -15,6 +15,15 @@ html {
 
 html, body {
   overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 모바일 스크롤 떨림 방지 */
+* {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 body {
