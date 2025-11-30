@@ -3,6 +3,7 @@ import PainPoint from './components/PainPoint';
 import About from './components/About';
 import Curriculum from './components/Curriculum';
 import HowItWorks from './components/HowItWorks';
+import Reviews from './components/Reviews';
 import Info from './components/Info';
 import Instructor from './components/Instructor';
 import FAQ from './components/FAQ';
@@ -18,6 +19,7 @@ export default function App() {
       <About />
       <Curriculum />
       <HowItWorks />
+      <Reviews />
       <Info />
       <Instructor />
       <FAQ />
