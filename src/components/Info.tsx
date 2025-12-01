@@ -89,7 +89,7 @@ export default function Info() {
           className="mt-6 text-center"
         >
           <a
-            href="https://map.kakao.com/link/map/메트라이프제주지점,33.4996,126.5312"
+            href="https://map.kakao.com/link/search/제주시 도령로33"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-xl transition-colors shadow-md"
