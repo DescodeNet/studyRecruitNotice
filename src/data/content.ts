@@ -2,7 +2,7 @@ export const content = {
   hero: {
     headline: "내 돈의 흐름을 읽는 눈,\n지코노믹 코칭랩",
     subheadline: "경제 뉴스가 내 통장과\n연결되는 순간을 경험하세요\n제주에서 시작하는 4강 완성 경제 코칭 스터디",
-    badges: ["12월 모집 중", "소수정원 10명", "제주"],
+    badges: ["12월 모집 중", "소수정원", "제주"],
     cta: "스터디 알아보기"
   },
 
@@ -146,7 +146,7 @@ export const content = {
     headline: "12월, 제주에서 시작합니다",
     subheadline: "일정은 참가자 투표로 최종 확정됩니다",
     items: [
-      { label: "모집 인원", value: "10명 이내", badge: "선착순 마감" },
+      { label: "모집 인원", value: "소수정원", badge: null },
       { label: "소요 시간", value: "회당 약 2시간", subtext: "강의 60~90분 + Q&A 30분" },
       { label: "참가비", value: "회당 3만원", subtext: null },
       { label: "장소", value: "제주시 도령로33\n현대해상건물 10층", subtext: "메트라이프 제주지점" }
@@ -198,7 +198,7 @@ export const content = {
 
   cta: {
     headline: "내 돈 공부,\n12월에 시작해보세요",
-    subheadline: "10명 정원, 선착순 마감입니다",
+    subheadline: "소수정원으로 운영됩니다",
     primaryButton: "스터디 신청하기",
     secondaryButton: "궁금한 점 먼저 문의하기",
     formFields: {
