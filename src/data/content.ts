@@ -146,10 +146,10 @@ export const content = {
     headline: "12월, 제주에서 시작합니다",
     subheadline: "일정은 참가자 투표로 최종 확정됩니다",
     items: [
-      { label: "모집 인원", value: "소수정원", badge: null },
-      { label: "소요 시간", value: "회당 약 2시간", subtext: "강의 60~90분 + Q&A 30분" },
-      { label: "참가비", value: "초반 3회 무료", subtext: "이후 회당 3만원" },
-      { label: "장소", value: "제주시 도령로33\n현대해상건물 10층", subtext: "메트라이프 제주지점" }
+      { label: "모집 인원", value: "소수정원", badge: null, subtext: null },
+      { label: "소요 시간", value: "회당 약 2시간", badge: null, subtext: "강의 60~90분 + Q&A 30분" },
+      { label: "참가비", value: "초반 3회 무료", badge: null, subtext: "이후 회당 3만원" },
+      { label: "장소", value: "제주시 도령로33\n현대해상건물 10층", badge: null, subtext: "메트라이프 제주지점" }
     ],
     scheduleOptions: [
       "12월 5일(금) 오후 3시",
