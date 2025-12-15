@@ -148,7 +148,7 @@ export const content = {
     items: [
       { label: "모집 인원", value: "소수정원", badge: null },
       { label: "소요 시간", value: "회당 약 2시간", subtext: "강의 60~90분 + Q&A 30분" },
-      { label: "참가비", value: "회당 3만원", subtext: null },
+      { label: "참가비", value: "초반 3회 무료", subtext: "이후 회당 3만원" },
       { label: "장소", value: "제주시 도령로33\n현대해상건물 10층", subtext: "메트라이프 제주지점" }
     ],
     scheduleOptions: [
