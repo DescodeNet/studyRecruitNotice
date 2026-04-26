@@ -11,6 +11,11 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 4.5rem;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 html, body {

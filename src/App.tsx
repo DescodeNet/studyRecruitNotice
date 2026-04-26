@@ -1,3 +1,4 @@
+import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import PainPoint from './components/PainPoint';
 import About from './components/About';
@@ -14,6 +15,7 @@ import Footer from './components/Footer';
 export default function App() {
   return (
     <div className="min-h-screen">
+      <NavBar />
       <Hero />
       <PainPoint />
       <About />
