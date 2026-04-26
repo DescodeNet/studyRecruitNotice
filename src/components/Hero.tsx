@@ -5,7 +5,7 @@ export default function Hero() {
   const { hero } = content;
 
   const scrollToSection = () => {
-    document.getElementById('pain-point')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -45,7 +45,7 @@ export default function Hero() {
           {hero.subheadline}
         </motion.p>
 
-        {/* Badges */}
+        {/* Badges - 실제 운영 정보 기반 */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -76,30 +76,8 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg text-lg transition-all duration-200 cursor-pointer"
         >
           {hero.cta}
-          <motion.span
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            ↓
-          </motion.span>
         </motion.button>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1.5 h-1.5 bg-white rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

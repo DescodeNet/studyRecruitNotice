@@ -1,4 +1,8 @@
+import { content } from '../data/content';
+
 export default function FloatingCTA() {
+  const { cta } = content;
+
   const scrollToCTA = () => {
     document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -21,7 +25,7 @@ export default function FloatingCTA() {
         onClick={scrollToCTA}
         className="w-full px-6 py-4 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl text-lg transition-colors cursor-pointer"
       >
-        스터디 신청하기
+        {cta.primaryButton}
       </button>
     </div>
   );

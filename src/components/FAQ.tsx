@@ -7,14 +7,14 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-bg">
+    <section id="faq" className="py-14 md:py-20 bg-bg">
       <div className="max-w-3xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-txt-primary mb-4">
             {faq.headline}
@@ -35,7 +35,7 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer hover:bg-bg/30 transition-colors"
               >
-                <span className="text-txt-primary font-medium pr-4">
+                <span className="text-txt-primary font-medium pr-4 whitespace-pre-line leading-relaxed">
                   {item.question}
                 </span>
                 <motion.div
@@ -48,6 +48,7 @@ export default function FAQ() {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
                   </svg>
@@ -64,7 +65,7 @@ export default function FAQ() {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-5">
-                      <p className="text-txt-secondary leading-relaxed">
+                      <p className="text-txt-secondary leading-relaxed whitespace-pre-line">
                         {item.answer}
                       </p>
                     </div>

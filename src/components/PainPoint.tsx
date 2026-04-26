@@ -23,14 +23,14 @@ export default function PainPoint() {
   };
 
   return (
-    <section id="pain-point" className="py-20 md:py-28 bg-bg">
+    <section id="pain-point" className="py-14 md:py-20 bg-bg">
       <div className="max-w-3xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-txt-primary mb-4">
             {painPoint.headline}
