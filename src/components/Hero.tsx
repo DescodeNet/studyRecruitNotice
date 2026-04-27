@@ -45,25 +45,6 @@ export default function Hero() {
           {hero.subheadline}
         </motion.p>
 
-        {/* Badges - 실제 운영 정보 기반 */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.8 }}
-          className="flex flex-wrap justify-center gap-3 mb-10"
-        >
-          {hero.badges.map((badge, index) => (
-            <motion.span
-              key={badge}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
-              className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30"
-            >
-              {badge}
-            </motion.span>
-          ))}
-        </motion.div>
 
         {/* CTA Button */}
         <motion.button
