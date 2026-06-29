@@ -1,16 +1,9 @@
 import { motion } from 'framer-motion';
 import { content } from '../data/content';
+import StudyGallery from './StudyGallery';
 
 export default function HowItWorks() {
   const { howItWorks } = content;
-
-  const studyImages = Array.from({ length: 16 }, (_, index) => ({
-    src: `/img/study/study-${String(index + 1).padStart(2, '0')}.jpeg`,
-    alt: `스터디 현장 사진 ${index + 1}`,
-  }));
-
-  const featuredImage = studyImages[0];
-  const secondaryImages = studyImages.slice(1, 4);
 
   return (
     <section id="how-it-works" className="py-14 md:py-20 bg-white">
@@ -30,62 +23,7 @@ export default function HowItWorks() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-6 gap-3 md:gap-4 mb-4"
-        >
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="col-span-6 md:col-span-3 rounded-2xl overflow-hidden shadow-lg aspect-[4/3]"
-          >
-            <img
-              src={featuredImage.src}
-              alt={featuredImage.alt}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
-          {secondaryImages.map((image, index) => (
-            <motion.div
-              key={image.src}
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 * (index + 1) }}
-              className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden shadow-md aspect-[4/3] md:aspect-auto"
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-10 md:mb-12 overflow-x-auto pb-2"
-        >
-          <div className="flex gap-3 md:gap-4 min-w-max">
-            {studyImages.map((image, index) => (
-              <div
-                key={image.src}
-                className="w-28 h-20 md:w-36 md:h-24 rounded-xl overflow-hidden shadow-sm border border-black/5 bg-bg flex-shrink-0"
-                aria-label={`스터디 현장 썸네일 ${index + 1}`}
-              >
-                <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        <StudyGallery />
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <motion.div
