@@ -131,20 +131,37 @@ export default function StudyGallery() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="mb-10 md:mb-12 overflow-x-auto pb-2"
+        className="mb-10 md:mb-12"
       >
-        <div className="flex gap-3 md:gap-4 min-w-max">
-          {STUDY_IMAGES.map((image, index) => (
-            <button
-              key={image.src}
-              type="button"
-              onClick={() => openImage(index)}
-              aria-label={`${image.alt} 크게 보기`}
-              className="w-28 h-20 md:w-36 md:h-24 rounded-xl overflow-hidden shadow-sm border border-black/5 bg-bg flex-shrink-0 cursor-pointer transition-transform duration-200 hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-4 focus:ring-primary/30"
-            >
-              <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-            </button>
-          ))}
+        <div className="mb-3 flex items-center justify-between gap-3 md:hidden">
+          <p className="text-sm font-bold text-txt-primary">사진첩</p>
+          <p className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary">
+            옆으로 밀어 더 보기
+            <span aria-hidden="true" className="text-base leading-none">›</span>
+          </p>
+        </div>
+
+        <div role="region" aria-label="사진첩 썸네일 목록" className="relative">
+          <div className="overflow-x-auto pb-2 pr-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:pr-0">
+            <div className="flex min-w-max snap-x snap-mandatory gap-3 md:gap-4">
+              {STUDY_IMAGES.map((image, index) => (
+                <button
+                  key={image.src}
+                  type="button"
+                  onClick={() => openImage(index)}
+                  aria-label={`${image.alt} 크게 보기`}
+                  className="h-20 w-28 flex-shrink-0 snap-start overflow-hidden rounded-xl border border-black/5 bg-bg shadow-sm transition-transform duration-200 hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-4 focus:ring-primary/30 md:h-24 md:w-36"
+                >
+                  <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white via-white/80 to-transparent md:hidden"
+          />
         </div>
       </motion.div>
 

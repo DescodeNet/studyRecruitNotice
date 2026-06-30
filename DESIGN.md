@@ -73,7 +73,7 @@ All spacing follows Tailwind's 4px scale.
 ### Section Photo Gallery
 - **Structure**: featured image, secondary images, horizontal thumbnail strip, modal lightbox.
 - **Spacing**: `gap-3 md:gap-4`, thumbnails `w-28 h-20 md:w-36 md:h-24`.
-- **States**: hover scale, focus ring, active press, selected thumbnail ring.
+- **States**: hover scale, focus ring, active press, mobile scroll hint, right edge fade, snap-aligned thumbnails.
 - **Accessibility**: photo triggers are buttons with descriptive labels; modal uses `role="dialog"`, `aria-modal`, close/previous/next controls, and Escape/arrow-key support.
 - **Motion**: image hover uses transform; modal fades/scales with Framer Motion.
 
