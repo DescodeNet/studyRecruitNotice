@@ -1,23 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
 import { content } from '../data/content';
-
-const EMAILJS_SERVICE_ID = 'service_ncti5e9';
-const EMAILJS_TEMPLATE_ID = 'template_e1qs48p';
-const EMAILJS_PUBLIC_KEY = 'bkVln7d1E5k2oO-eA';
-
-interface FormData {
-  name: string;
-  phone: string;
-  email?: string;
-  sido: string;
-  regionDetail: string;
-  experience?: string;
-  question?: string;
-  consent: boolean;
-}
+import { submitApplication, type FormData } from './ctaSubmission';
 
 export default function CTA() {
   const { cta } = content;
@@ -41,27 +26,15 @@ export default function CTA() {
     setIsSubmitting(true);
 
     try {
-      const templateParams = {
-        from_name: data.name,
-        phone: data.phone,
-        email: data.email || '미입력',
-        sido: data.sido,
-        region_detail: data.regionDetail,
-        experience: data.experience || '미입력',
-        question: data.question || '없음',
-      };
-
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      );
-
+      await submitApplication(data);
       setIsSubmitted(true);
       reset();
     } catch (error) {
-      console.error('이메일 전송 실패:', error);
+      if (!(error instanceof Error)) {
+        throw error;
+      }
+
+      console.error('신청 전송 실패:', error.message);
       alert('신청 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
     } finally {
       setIsSubmitting(false);
