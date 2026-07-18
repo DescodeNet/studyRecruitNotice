@@ -225,7 +225,12 @@ export const content = {
       regionDetail: { label: "상세 희망 지역", placeholder: "예: 제주시 노형동, 서울 강남구" },
       experience: {
         label: "경제 공부 경험 (선택)",
-        options: ["처음이에요", "유튜브로 조금 봤어요", "책/강의 경험 있어요"]
+        options: [
+          "처음이에요",
+          "유튜브로 조금 봤어요",
+          "책/강의 경험 있어요",
+          "경제·경영·금융 관련 전공 또는 업무 경험이 있어요"
+        ]
       },
       selfDiagnostic: {
         label: "간단 자가진단 (해당되는 항목을 모두 선택해주세요)",
