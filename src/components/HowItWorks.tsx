@@ -25,7 +25,7 @@ export default function HowItWorks() {
 
         <StudyGallery />
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -47,32 +47,6 @@ export default function HowItWorks() {
                 ))}
               </ul>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
-          >
-            {howItWorks.qna.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                className="bg-bg rounded-xl p-5"
-              >
-                <p className="text-txt-primary font-medium mb-2 whitespace-pre-line">
-                  Q: "{item.q}"
-                </p>
-                <p className="text-primary font-semibold whitespace-pre-line">
-                  A: {item.a}
-                </p>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </div>

@@ -154,8 +154,8 @@ export const content = {
   },
 
   howItWorks: {
-    headline: "강의실이 아니라,\n함께 읽고 질문하는 자리입니다",
-    subheadline: "듣기만 하는 수업이 아닙니다.\n질문하고, 토론하고, 함께 고민합니다.",
+    headline: "강의 듣고 끝나는\n모임이 아닙니다",
+    subheadline: "개념을 배우고, 질문하고,\n내 상황에 적용해봅니다.",
     structure: {
       title: "한 회차는 이렇게 진행됩니다",
       items: [
@@ -163,13 +163,7 @@ export const content = {
         "30분: Q&A 및 자유 토론\n(돈 관련 무엇이든)",
         "회차마다 직접 해보는 실습 과제"
       ]
-    },
-    qna: [
-      { q: "모르는 거 물어봐도 되나요?", a: "당연히요.\n그래서 5~10명 소수팀입니다." },
-      { q: "경제 완전 초보인데요", a: "기초부터 시작합니다.\n걱정 마세요." },
-      { q: "혼자 공부하면 작심삼일이에요", a: "같은 지역 팀과\n함께하면 다릅니다." }
-    ],
-    testimonial: null
+    }
   },
 
   reviews: {
@@ -246,7 +240,7 @@ export const content = {
       question: { label: "궁금한 점이 있다면 (선택)", placeholder: "자유롭게 적어주세요" },
       consent: { label: "신청 내용 확인 및 연락을 위한 개인정보 수집·이용에 동의합니다." }
     },
-    submitMessage: "신청이 접수되었습니다.\n같은 지역 신청자가 5명 이상 모이면\n담당자가 카카오톡 또는 문자로 안내드립니다."
+    submitMessage: "신청이 접수되었습니다.\n같은 지역 팀 구성이 가능해지면\n담당자가 카카오톡 또는 문자로 안내드립니다."
   },
 
   footer: {
