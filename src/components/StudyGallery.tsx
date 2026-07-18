@@ -6,9 +6,9 @@ interface StudyImage {
   readonly alt: string;
 }
 
-const STUDY_IMAGES: readonly StudyImage[] = Array.from({ length: 16 }, (_, index) => {
-  const imageNumber = index + 1;
+const STUDY_IMAGE_ORDER = [5, 2, 3, 4, 1, ...Array.from({ length: 11 }, (_, index) => index + 6)];
 
+const STUDY_IMAGES: readonly StudyImage[] = STUDY_IMAGE_ORDER.map((imageNumber) => {
   return {
     src: `/img/study/study-${String(imageNumber).padStart(2, '0')}.jpeg`,
     alt: `스터디 현장 사진 ${imageNumber}`,
