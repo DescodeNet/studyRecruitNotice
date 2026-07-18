@@ -90,21 +90,6 @@ export default function CTA() {
             onSubmit={handleSubmit(onSubmit)}
             className="bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-white/70"
           >
-            <div className="mb-8 rounded-2xl bg-bg/80 border border-accent/30 p-5 md:p-6">
-              <div className="flex items-start gap-4">
-                <span className="mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-primary text-white text-sm font-bold">
-                  5+
-                </span>
-                <div>
-                  <p className="text-sm font-bold text-primary mb-1">지역 기반 팀 개설 안내</p>
-                  <p className="text-sm md:text-base text-txt-secondary leading-relaxed">
-                    같은 시/도와 상세 희망 지역에서 신청자가 5명 이상 모이면 담당자가 순차적으로 연락드립니다.
-                    팀은 질문과 토론이 편한 5~10명 규모로 운영됩니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-sm font-medium text-txt-primary mb-2">
