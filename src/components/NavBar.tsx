@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_ITEMS = [
-  { id: 'about', label: '스터디 소개' },
   { id: 'curriculum', label: '커리큘럼' },
+  { id: 'about', label: '스터디 소개' },
   { id: 'how-it-works', label: '진행 방식' },
   { id: 'reviews', label: '후기' },
   { id: 'info', label: '운영 안내' },
+  { id: 'instructor', label: '코치 소개' },
   { id: 'faq', label: 'FAQ' },
+  { id: 'cta', label: '신청' },
 ];
 
 export default function NavBar() {
@@ -51,7 +53,7 @@ export default function NavBar() {
     const target = document.getElementById(id);
     if (!target) return;
 
-    const navOffset = window.innerWidth < 768 ? 108 : 64;
+    const navOffset = (document.querySelector('nav')?.getBoundingClientRect().height ?? 0) + 12;
     const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   };
@@ -101,15 +103,6 @@ export default function NavBar() {
                 );
               })}
             </ul>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => handleAnchor('cta')}
-                className="hidden sm:inline-flex px-4 py-2 rounded-full bg-accent hover:bg-accent-hover text-white text-sm font-semibold transition-colors"
-              >
-                신청하기
-              </button>
-            </div>
           </div>
 
           <div className="md:hidden border-t border-black/5 bg-bg/95">
