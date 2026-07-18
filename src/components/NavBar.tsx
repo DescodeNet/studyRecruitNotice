@@ -3,12 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_ITEMS = [
   { id: 'curriculum', label: '커리큘럼' },
-  { id: 'about', label: '스터디 소개' },
   { id: 'how-it-works', label: '진행 방식' },
   { id: 'reviews', label: '후기' },
-  { id: 'info', label: '운영 안내' },
   { id: 'instructor', label: '코치 소개' },
-  { id: 'faq', label: 'FAQ' },
   { id: 'cta', label: '신청' },
 ];
 

@@ -1,5 +1,3 @@
-type IconKey = 'book' | 'users' | 'pencil' | 'map-pin' | 'calendar' | 'wallet' | 'message-circle';
-
 export interface CurriculumTopic {
   text: string;
 }
@@ -18,18 +16,6 @@ export interface CurriculumWeek {
   tag?: string;
 }
 
-export interface RegionStep {
-  title: string;
-  description: string;
-}
-
-export interface InfoItem {
-  label: string;
-  value: string;
-  subtext?: string | null;
-  icon: IconKey;
-}
-
 export const SI_DO_OPTIONS = [
   '서울', '경기', '인천',
   '부산', '대구', '대전', '광주', '울산', '세종',
@@ -44,19 +30,6 @@ export const content = {
     badges: ["전국 12개 팀 운영", "5~10명 소수팀", "초반 3회 무료"],
     cta: "우리 지역 팀 신청하기"
   },
-
-
-  about: {
-    headline: "혼자 듣는 강의가 아니라,\n함께 읽고 질문하는 실전 스터디입니다",
-    subheadline: "전국에서 운영 중인 소규모 경제 스터디 모임,\n같은 지역 사람들과 함께합니다.",
-    stats: [
-      { value: "12", suffix: "개 팀", label: "전국 운영 중" },
-      { value: "3", suffix: "개 팀", label: "제주 운영 중" },
-      { value: "6", suffix: "강", label: "정규 커리큘럼" }
-    ],
-    socialProof: "현재 전국 12개 팀, 제주 3개 팀이 함께 공부하고 있습니다."
-  },
-
   curriculum: {
     headline: "6강으로 정리하는\n경제 문해력",
     subheadline: "재무 진단부터 세금까지,\n순서대로 따라가는 6강 구성입니다",
@@ -236,46 +209,6 @@ export const content = {
     ]
   },
 
-  info: {
-    headline: "지역에 5명이 모이면,\n새 팀이 열립니다",
-    subheadline: "전국 어디서든 신청할 수 있고,\n같은 지역 신청자가 모이면 팀이 개설됩니다.",
-    items: [
-      {
-        label: "팀 인원",
-        value: "5명 ~ 10명",
-        subtext: "최소 5명 모이면 팀이 시작됩니다",
-        icon: "users" as IconKey
-      },
-      {
-        label: "회차당 시간",
-        value: "약 2시간",
-        subtext: "강의 60~90분 + Q&A 30분",
-        icon: "calendar" as IconKey
-      },
-      {
-        label: "참가비",
-        value: "초반 3회 무료",
-        subtext: "이후 회당 5만원",
-        icon: "wallet" as IconKey
-      },
-      {
-        label: "장소 / 일정",
-        value: "팀별 협의",
-        subtext: "단톡방에서 함께 정합니다",
-        icon: "map-pin" as IconKey
-      }
-    ] as InfoItem[],
-    flow: [
-      { title: "희망 지역으로 신청", description: "내가 살고 있거나 모일 수 있는 지역을 남깁니다." },
-      { title: "같은 지역 신청자 5명 이상 모집", description: "신청 인원이 모이면 자동으로 팀 개설 후보가 됩니다." },
-      { title: "담당자 개별 연락", description: "팀 개설이 가능해지면 순차적으로 연락드립니다." },
-      { title: "팀 단톡방 개설", description: "참여 확정자들로 팀 단톡방을 만듭니다." },
-      { title: "일정·장소 협의", description: "단톡방에서 모일 수 있는 시간과 장소를 함께 정합니다." },
-      { title: "6강 스터디 시작", description: "정해진 일정에 따라 6강 커리큘럼을 함께 진행합니다." }
-    ] as RegionStep[],
-    note: "혼자 신청해도 괜찮습니다. 같은 지역에서 5명이 모이면 새 팀이 열립니다."
-  },
-
   instructor: {
     headline: "이 스터디를 운영하는 사람",
     subheadline: "경제를 어렵지 않게,\n삶에 연결되게 전달합니다",
@@ -285,39 +218,8 @@ export const content = {
     philosophy: "경제 공부는 '지식'이 아니라\n'관점'을 배우는 것입니다"
   },
 
-  faq: {
-    headline: "자주 묻는 질문",
-    items: [
-      {
-        question: "우리 지역에 아직 팀이 없으면\n어떻게 되나요?",
-        answer: "신청을 남겨주시면 같은 지역 신청자가 5명 이상 모였을 때\n담당자가 개별로 연락드립니다.\n신청 즉시 팀이 확정되는 것은 아닙니다."
-      },
-      {
-        question: "일정은 정해져 있나요?",
-        answer: "고정된 일정은 없습니다.\n팀이 개설되면 단톡방에서 참여자들과 함께 조율합니다."
-      },
-      {
-        question: "장소는 어디인가요?",
-        answer: "장소는 팀별로 다르며, 참여자 협의를 통해 정해집니다.\n오프라인 모임이 가능한 지역으로 운영합니다."
-      },
-      {
-        question: "몇 명이 모이면 시작하나요?",
-        answer: "최소 5명 이상 모이면 시작할 수 있고,\n한 팀은 최대 10명까지 운영됩니다."
-      },
-      {
-        question: "비용은 어떻게 되나요?",
-        answer: "초반 3회는 무료이며, 이후 회당 5만원으로 진행됩니다.\n결제 방식은 팀 개설 후 단톡방에서 별도로 안내드립니다."
-      },
-      {
-        question: "경제 지식이 전혀 없는데\n따라갈 수 있을까요?",
-        answer: "네, 기초부터 시작합니다.\n“은행에 왜 돈을 넣으면 손해인가?”부터 설명합니다.\n오히려 백지 상태에서 시작하는 분들이 체계를 잡기 더 좋습니다."
-      }
-    ]
-  },
-
   cta: {
     headline: "우리 지역에서\n함께 공부할 사람을 찾고 있어요",
-    subheadline: "신청 즉시 팀이 확정되는 것은 아니며,\n같은 지역 신청자가 모이면 개별로 안내드립니다.",
     primaryButton: "우리 지역 팀 신청하기",
     secondaryButton: "궁금한 점 먼저 문의하기",
     formFields: {
