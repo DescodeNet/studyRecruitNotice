@@ -213,7 +213,7 @@ export const content = {
   },
 
   cta: {
-    headline: "우리 지역에서\n함께 공부할 사람을 찾고 있어요",
+    headline: "우리 지역 경제 스터디\n참여 신청",
     primaryButton: "우리 지역 팀 신청하기",
     secondaryButton: "궁금한 점 먼저 문의하기",
     formFields: {
