@@ -14,7 +14,9 @@ export default function CTA() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: { selfDiagnostic: [] },
+  });
 
   const inputClass =
     'w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-txt-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-primary focus:ring-4 focus:ring-primary/10';
@@ -149,6 +151,19 @@ export default function CTA() {
               />
             </div>
 
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-txt-primary mb-2">
+                {cta.formFields.referrer.label} <span className="text-red-500">*</span>
+              </label>
+              <input
+                {...register('referrer', { required: '소개자를 입력해주세요' })}
+                type="text"
+                placeholder={cta.formFields.referrer.placeholder}
+                className={`${inputClass} ${errors.referrer ? errorClass : ''}`}
+              />
+              {errors.referrer && <p className="text-red-500 text-sm mt-1">{errors.referrer.message}</p>}
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-sm font-medium text-txt-primary mb-2">
@@ -208,6 +223,27 @@ export default function CTA() {
                   </svg>
                 </span>
               </div>
+            </div>
+
+            <div className="mb-8">
+              <fieldset>
+                <legend className="block text-sm font-medium text-txt-primary mb-3">
+                  {cta.formFields.selfDiagnostic.label}
+                </legend>
+                <div className="space-y-3 rounded-2xl bg-bg/70 border border-gray-100 p-4">
+                  {cta.formFields.selfDiagnostic.items.map((item) => (
+                    <label key={item} className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        {...register('selfDiagnostic')}
+                        type="checkbox"
+                        value={item}
+                        className="mt-0.5 h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-primary cursor-pointer"
+                      />
+                      <span className="text-sm text-txt-secondary leading-relaxed">{item}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
             </div>
 
             <div className="mb-8">

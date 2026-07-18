@@ -9,9 +9,11 @@ export interface FormData {
   readonly name: string;
   readonly phone: string;
   readonly email?: string;
+  readonly referrer: string;
   readonly sido: string;
   readonly regionDetail: string;
   readonly experience?: string;
+  readonly selfDiagnostic: string[];
   readonly question?: string;
   readonly consent: boolean;
 }
@@ -20,9 +22,11 @@ interface KakaoNotificationPayload {
   readonly name: string;
   readonly phone: string;
   readonly email: string;
+  readonly referrer: string;
   readonly sido: string;
   readonly regionDetail: string;
   readonly experience: string;
+  readonly selfDiagnostic: string[];
   readonly question: string;
 }
 
@@ -38,9 +42,11 @@ function toEmailTemplateParams(data: FormData) {
     from_name: data.name,
     phone: data.phone,
     email: data.email || '미입력',
+    referrer: data.referrer,
     sido: data.sido,
     region_detail: data.regionDetail,
     experience: data.experience || '미입력',
+    self_diagnostic: data.selfDiagnostic.length > 0 ? data.selfDiagnostic.join('\n- ') : '해당 없음',
     question: data.question || '없음',
   };
 }
@@ -50,9 +56,11 @@ function toKakaoNotificationPayload(data: FormData): KakaoNotificationPayload {
     name: data.name,
     phone: data.phone,
     email: data.email || '',
+    referrer: data.referrer,
     sido: data.sido,
     regionDetail: data.regionDetail,
     experience: data.experience || '',
+    selfDiagnostic: data.selfDiagnostic,
     question: data.question || '',
   };
 }

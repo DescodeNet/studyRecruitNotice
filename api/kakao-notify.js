@@ -36,6 +36,15 @@ function readStringField(body, fieldName) {
   return value.trim();
 }
 
+function readStringArrayField(body, fieldName) {
+  const value = body[fieldName];
+  if (!Array.isArray(value) || !value.every((item) => typeof item === 'string')) {
+    throw new HttpError(400, `${fieldName} must be an array of strings.`);
+  }
+
+  return value.map((item) => item.trim()).filter((item) => item !== '');
+}
+
 function parseBody(body) {
   if (typeof body === 'string') {
     return JSON.parse(body);
@@ -54,9 +63,11 @@ function parseApplication(body) {
     name: readStringField(parsedBody, 'name'),
     phone: readStringField(parsedBody, 'phone'),
     email: readStringField(parsedBody, 'email'),
+    referrer: readStringField(parsedBody, 'referrer'),
     sido: readStringField(parsedBody, 'sido'),
     regionDetail: readStringField(parsedBody, 'regionDetail'),
     experience: readStringField(parsedBody, 'experience'),
+    selfDiagnostic: readStringArrayField(parsedBody, 'selfDiagnostic'),
     question: readStringField(parsedBody, 'question'),
   };
 }
@@ -106,6 +117,9 @@ async function refreshAccessToken() {
 function buildMessage(application) {
   const email = application.email === '' ? '미입력' : application.email;
   const experience = application.experience === '' ? '미입력' : application.experience;
+  const selfDiagnostic = application.selfDiagnostic.length === 0
+    ? '해당 없음'
+    : application.selfDiagnostic.map((item) => `- ${item}`).join('\n');
   const question = application.question === '' ? '없음' : application.question;
 
   return [
@@ -113,8 +127,10 @@ function buildMessage(application) {
     `이름: ${application.name}`,
     `연락처: ${application.phone}`,
     `이메일: ${email}`,
+    `소개자: ${application.referrer}`,
     `지역: ${application.sido} ${application.regionDetail}`,
     `경험: ${experience}`,
+    `자가진단:\n${selfDiagnostic}`,
     `질문: ${question}`,
   ].join('\n');
 }

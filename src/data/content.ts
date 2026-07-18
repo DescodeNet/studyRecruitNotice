@@ -45,18 +45,6 @@ export const content = {
     cta: "우리 지역 팀 신청하기"
   },
 
-  painPoint: {
-    headline: "혹시 이런 생각,\n해보신 적 있나요?",
-    subheadline: "경제 공부, 시작은 했는데...",
-    items: [
-      "유튜브로 경제 공부 시작했는데,\n뭐가 맞는 말인지 모르겠다",
-      "주식 계좌는 만들었는데,\n뭘 사야 할지 감이 안 온다",
-      "금리가 올랐다는데,\n그게 나한테 좋은 건지 나쁜 건지 헷갈린다",
-      "연말정산 때마다\n\"세액공제 상품 들어야 하나?\" 고민만 하다 끝난다",
-      "노후 준비, 해야 하는 건 아는데\n어디서부터 손대야 할지 막막하다"
-    ],
-    closing: "하나라도 해당된다면,\n같은 지역 팀에서 함께 시작해보세요."
-  },
 
   about: {
     headline: "혼자 듣는 강의가 아니라,\n함께 읽고 질문하는 실전 스터디입니다",
@@ -353,11 +341,22 @@ export const content = {
       name: { label: "이름", placeholder: "홍길동" },
       phone: { label: "연락처", placeholder: "010-1234-5678" },
       email: { label: "이메일 (선택)", placeholder: "example@email.com" },
+      referrer: { label: "소개자", placeholder: "예: 홍길동 (직접 신청이면 '없음' 입력)" },
       sido: { label: "희망 시/도", options: SI_DO_OPTIONS },
       regionDetail: { label: "상세 희망 지역", placeholder: "예: 제주시 노형동, 서울 강남구" },
       experience: {
         label: "경제 공부 경험 (선택)",
         options: ["처음이에요", "유튜브로 조금 봤어요", "책/강의 경험 있어요"]
+      },
+      selfDiagnostic: {
+        label: "간단 자가진단 (해당되는 항목을 모두 선택해주세요)",
+        items: [
+          "유튜브로 경제 공부 시작했는데, 뭐가 맞는 말인지 모르겠다",
+          "주식 계좌는 만들었는데, 뭘 사야 할지 감이 안 온다",
+          "금리가 올랐을 때 나에게 좋은 건지 나쁜 건지 헷갈린다",
+          "연말정산 때마다 세액공제 상품을 고민만 하다 끝난다",
+          "노후 준비를 어디서부터 시작해야 할지 막막하다"
+        ]
       },
       question: { label: "궁금한 점이 있다면 (선택)", placeholder: "자유롭게 적어주세요" },
       consent: { label: "신청 내용 확인 및 연락을 위한 개인정보 수집·이용에 동의합니다." }

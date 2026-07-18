@@ -34,6 +34,7 @@ describe('CTA notifications', () => {
     await user.type(screen.getByPlaceholderText('홍길동'), '김담당');
     await user.type(screen.getByPlaceholderText('010-1234-5678'), '010-1111-2222');
     await user.type(screen.getByPlaceholderText('example@email.com'), 'apply@example.com');
+    await user.type(screen.getByPlaceholderText("예: 홍길동 (직접 신청이면 '없음' 입력)"), '박소개');
     const [sidoSelect, experienceSelect] = screen.getAllByRole('combobox');
     if (sidoSelect === undefined || experienceSelect === undefined) {
       throw new Error('CTA form select controls were not rendered.');
@@ -42,8 +43,9 @@ describe('CTA notifications', () => {
     await user.selectOptions(sidoSelect, '서울');
     await user.type(screen.getByPlaceholderText('예: 제주시 노형동, 서울 강남구'), '강남구');
     await user.selectOptions(experienceSelect, '처음이에요');
+    await user.click(screen.getByLabelText('유튜브로 경제 공부 시작했는데, 뭐가 맞는 말인지 모르겠다'));
     await user.type(screen.getByPlaceholderText('자유롭게 적어주세요'), '주말반 가능한가요?');
-    await user.click(screen.getByRole('checkbox'));
+    await user.click(screen.getByLabelText(/개인정보 수집·이용에 동의합니다/));
     await user.click(screen.getByRole('button', { name: '우리 지역 팀 신청하기' }));
 
     await waitFor(() => {
@@ -59,9 +61,11 @@ describe('CTA notifications', () => {
             name: '김담당',
             phone: '010-1111-2222',
             email: 'apply@example.com',
+            referrer: '박소개',
             sido: '서울',
             regionDetail: '강남구',
             experience: '처음이에요',
+            selfDiagnostic: ['유튜브로 경제 공부 시작했는데, 뭐가 맞는 말인지 모르겠다'],
             question: '주말반 가능한가요?',
           }),
         })

@@ -1,6 +1,5 @@
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
-import PainPoint from './components/PainPoint';
 import About from './components/About';
 import Curriculum from './components/Curriculum';
 import HowItWorks from './components/HowItWorks';
@@ -17,7 +16,6 @@ export default function App() {
     <div className="min-h-screen">
       <NavBar />
       <Hero />
-      <PainPoint />
       <About />
       <Curriculum />
       <HowItWorks />
