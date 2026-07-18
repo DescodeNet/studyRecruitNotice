@@ -1,11 +1,40 @@
+import { useEffect, useState } from 'react';
 import { content } from '../data/content';
 
 export default function FloatingCTA() {
   const { cta } = content;
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const applicationSection = document.getElementById('cta');
+
+      if (applicationSection === null || window.innerWidth >= 768) {
+        setIsVisible(false);
+        return;
+      }
+
+      const applicationTop = applicationSection.getBoundingClientRect().top;
+      setIsVisible(applicationTop > window.innerHeight - 96);
+    };
+
+    updateVisibility();
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
+
+    return () => {
+      window.removeEventListener('scroll', updateVisibility);
+      window.removeEventListener('resize', updateVisibility);
+    };
+  }, []);
 
   const scrollToCTA = () => {
     document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div
