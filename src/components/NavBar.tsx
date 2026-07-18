@@ -13,7 +13,6 @@ const NAV_ITEMS = [
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 320);
@@ -49,8 +48,12 @@ export default function NavBar() {
   }, []);
 
   const handleAnchor = (id: string) => {
-    setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const navOffset = window.innerWidth < 768 ? 108 : 64;
+    const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   };
 
   return (
@@ -106,58 +109,27 @@ export default function NavBar() {
               >
                 신청하기
               </button>
-              <button
-                aria-label="섹션 메뉴 열기"
-                aria-expanded={menuOpen}
-                onClick={() => setMenuOpen((prev) => !prev)}
-                className="md:hidden inline-flex w-10 h-10 items-center justify-center rounded-full bg-white/70 border border-black/5 text-primary-dark"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                >
-                  {menuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
-              </button>
             </div>
           </div>
 
-          <AnimatePresence>
-            {menuOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.22, ease: 'easeInOut' }}
-                className="md:hidden overflow-hidden border-t border-black/5 bg-bg/95"
-              >
-                <ul className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-2 gap-2">
-                  {NAV_ITEMS.map((item) => (
-                    <li key={item.id}>
-                      <button
-                        onClick={() => handleAnchor(item.id)}
-                        className={`w-full px-3 py-2.5 text-sm font-medium rounded-xl text-left transition-colors ${
-                          activeId === item.id
-                            ? 'bg-primary/10 text-primary-dark'
-                            : 'bg-white/70 text-txt-secondary'
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div className="md:hidden border-t border-black/5 bg-bg/95">
+            <ul className="flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.id} className="flex-none">
+                  <button
+                    onClick={() => handleAnchor(item.id)}
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors whitespace-nowrap ${
+                      activeId === item.id
+                        ? 'bg-primary text-white'
+                        : 'bg-white text-txt-secondary border border-black/5'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </motion.nav>
       )}
     </AnimatePresence>

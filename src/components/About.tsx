@@ -1,21 +1,8 @@
 import { motion } from 'framer-motion';
 import { content } from '../data/content';
-import { Icon } from './Icon';
 
 export default function About() {
   const { about } = content;
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.2 + i * 0.15,
-        duration: 0.5,
-      },
-    }),
-  };
 
   return (
     <section id="about" className="py-14 md:py-20 bg-white">
@@ -63,36 +50,11 @@ export default function About() {
           ))}
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {about.cards.map((card, index) => (
-            <motion.div
-              key={index}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-              whileHover={{ y: -4, boxShadow: '0 12px 24px rgba(0, 0, 0, 0.08)' }}
-              className="bg-white rounded-2xl p-8 shadow-md transition-all duration-300 border border-gray-100"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
-                <Icon name={card.icon} className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-txt-primary mb-3">
-                {card.title}
-              </h3>
-              <p className="text-txt-secondary leading-relaxed whitespace-pre-line">
-                {card.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center"
         >
           <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-full font-medium">

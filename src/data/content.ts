@@ -49,23 +49,6 @@ export const content = {
   about: {
     headline: "혼자 듣는 강의가 아니라,\n함께 읽고 질문하는 실전 스터디입니다",
     subheadline: "전국에서 운영 중인 소규모 경제 스터디 모임,\n같은 지역 사람들과 함께합니다.",
-    cards: [
-      {
-        icon: "book" as IconKey,
-        title: "6강 구성 커리큘럼",
-        description: "재무 진단부터 경제순환, 투자 기초,\n재무설계, 세금까지.\n순서대로 따라가며 익히는 6강 구성."
-      },
-      {
-        icon: "users" as IconKey,
-        title: "5~10명 소수 팀",
-        description: "한 팀은 5명에서 시작해 최대 10명까지.\n질문하고 토론하기 좋은 규모로\n운영합니다."
-      },
-      {
-        icon: "pencil" as IconKey,
-        title: "지역 기반 오프라인 모임",
-        description: "내 지역에 같은 사람이 모이면 팀이 열립니다.\n일정과 장소는 팀원들과\n함께 정합니다."
-      }
-    ],
     stats: [
       { value: "12", suffix: "개 팀", label: "전국 운영 중" },
       { value: "3", suffix: "개 팀", label: "제주 운영 중" },
