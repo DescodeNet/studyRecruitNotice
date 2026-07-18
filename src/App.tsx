@@ -16,8 +16,8 @@ export default function App() {
     <div className="min-h-screen">
       <NavBar />
       <Hero />
-      <About />
       <Curriculum />
+      <About />
       <HowItWorks />
       <Reviews />
       <Info />

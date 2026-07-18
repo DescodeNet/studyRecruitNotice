@@ -4,10 +4,6 @@ import { content } from '../data/content';
 export default function Hero() {
   const { hero } = content;
 
-  const scrollToSection = () => {
-    document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section
       id="hero"
@@ -45,19 +41,6 @@ export default function Hero() {
           {hero.subheadline}
         </motion.p>
 
-
-        {/* CTA Button */}
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(232, 165, 75, 0.4)' }}
-          whileTap={{ scale: 0.98 }}
-          onClick={scrollToSection}
-          className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg text-lg transition-all duration-200 cursor-pointer"
-        >
-          {hero.cta}
-        </motion.button>
       </div>
     </section>
   );
